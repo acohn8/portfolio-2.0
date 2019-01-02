@@ -3,21 +3,21 @@ import ExperienceContainer from './ExperienceContainer'
 import ExperienceContent from './ExperienceContent'
 import ExperienceHeader from './ExperienceHeader'
 import ExperienceSubHeader from './ExperienceSubheader'
-import ExperienceListItem from './ExperienceListItem'
-import ExperienceList from './ExperienceList'
+import CheckListItem from '../../elements/CheckListItem'
+import CheckList from '../../elements/CheckList'
 
 const Experience = ({ title, dates, tasks }) => (
   <Experience.Container>
     <Experience.Content>
       <Experience.Header>{title}</Experience.Header>
       <Experience.Subheader>{dates}</Experience.Subheader>
-      <ExperienceList>
+      <Experience.List>
         {tasks.map((task, index) => (
           <Experience.ListItem key={`${title}${task}${index}`}>
             {task.role.text}
           </Experience.ListItem>
         ))}
-      </ExperienceList>
+      </Experience.List>
     </Experience.Content>
   </Experience.Container>
 )
@@ -26,7 +26,7 @@ Experience.Container = ExperienceContainer
 Experience.Content = ExperienceContent
 Experience.Header = ExperienceHeader
 Experience.Subheader = ExperienceSubHeader
-Experience.List = ExperienceList
-Experience.ListItem = ExperienceListItem
+Experience.List = CheckList
+Experience.ListItem = CheckListItem
 
 export default Experience

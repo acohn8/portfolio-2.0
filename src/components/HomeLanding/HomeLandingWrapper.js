@@ -7,9 +7,6 @@ const HomeLandingWrapper = styled.div`
   @media only screen and (min-width: 450px) {
     height: 625px;
   }
-  /* @media only screen and (min-width: 450px) {
-    height: 625px;
-  } */
 `
 
 export default HomeLandingWrapper

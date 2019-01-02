@@ -8,7 +8,13 @@ const NavLink = styled.div`
   margin: 0 10px;
   font-family: 'Roboto';
   font-weight: 400;
-  font-size: 20px;
+
+  @media only screen and (max-width: 449px) {
+    font-size: 16px;
+  }
+  @media only screen and (min-width: 450px) {
+    font-size: 20px;
+  }
 `
 
 export default NavLink

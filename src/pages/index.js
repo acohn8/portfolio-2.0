@@ -23,7 +23,7 @@ const IndexPage = ({ data: { prismicHome, allPrismicProject } }) => (
 export default IndexPage
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  {
     prismicHome {
       id
       data {
@@ -39,6 +39,9 @@ export const pageQuery = graphql`
       edges {
         node {
           data {
+            link {
+              url
+            }
             image {
               url
             }

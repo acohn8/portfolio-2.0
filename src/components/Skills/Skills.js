@@ -1,9 +1,9 @@
 import React from 'react'
 import SkillsContainer from './SkillsContainer'
-import SkillsListItem from './SkillsListItem'
-import SkillsList from './SkillsList'
 import SkillsContent from './SkillsContent'
 import SkillsHeader from './SkillsHeader'
+import CheckListItem from '../../elements/CheckListItem'
+import CheckList from '../../elements/CheckList'
 
 const Skills = ({ section, skillItems }) => (
   <SkillsContainer>
@@ -23,7 +23,7 @@ const Skills = ({ section, skillItems }) => (
 Skills.Container = SkillsContainer
 Skills.Header = SkillsHeader
 Skills.Content = SkillsContent
-Skills.List = SkillsList
-Skills.ListItem = SkillsListItem
+Skills.List = CheckList
+Skills.ListItem = CheckListItem
 
 export default Skills

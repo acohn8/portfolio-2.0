@@ -8,9 +8,11 @@ const ProtfolioProjects = ({ projects }) => (
   <>
     <FlexGrid>
       <ProtfolioProjects.Header>Projects</ProtfolioProjects.Header>
+      {console.log(projects)}
       {projects.map(project => (
         <Project
           key={project.node.data.name.text}
+          link={project.node.data.link.url}
           name={project.node.data.name.text}
           description={project.node.data.description.text}
           image={project.node.data.image.url}

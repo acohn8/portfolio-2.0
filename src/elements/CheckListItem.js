@@ -1,19 +1,18 @@
 import styled from 'styled-components'
 
-import checkIcon from '../../static/icon-check.svg'
-import * as colors from '../../theme/colors'
+import checkIcon from '../static/icon-check.svg'
 
-const SkillsListItem = styled.li`
+const CheckListItem = styled.li`
   color: hsl(211, 10%, 53%);
   background: url(${checkIcon}) left center;
   background-repeat: no-repeat;
-  background-size: 30px;
+  background-size: 20px;
   list-style-type: none;
   font-weight: 400;
   font-size: 18px;
-  padding: 5px 0 3px 45px;
+  padding: 0px 0px 3px 35px;
   margin-bottom: 36px;
   line-height: 24px;
 `
 
-export default SkillsListItem
+export default CheckListItem
