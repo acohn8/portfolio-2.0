@@ -5,20 +5,16 @@ import SkillsList from './SkillsList'
 import SkillsContent from './SkillsContent'
 import SkillsHeader from './SkillsHeader'
 
-const Skills = () => (
+const Skills = ({ section, skillItems }) => (
   <SkillsContainer>
     <Skills.Content>
-      <Skills.Header>Front-end</Skills.Header>
+      <Skills.Header>{section}</Skills.Header>
       <Skills.List>
-        <Skills.ListItem>JavaScript</Skills.ListItem>
-        <Skills.ListItem>React.js</Skills.ListItem>
-        <Skills.ListItem>Redux</Skills.ListItem>
-        <Skills.ListItem>HTML</Skills.ListItem>
-        <Skills.ListItem>CSS</Skills.ListItem>
-        {/* <Skills.ListItem>Ruby</Skills.ListItem>
-        <Skills.ListItem>Ruby on Rails</Skills.ListItem>
-        <Skills.ListItem>SQL</Skills.ListItem>
-        <Skills.ListItem>git</Skills.ListItem> */}
+        {skillItems.map(skill => (
+          <Skills.ListItem key={skill.skill.text}>
+            {skill.skill.text}
+          </Skills.ListItem>
+        ))}
       </Skills.List>
     </Skills.Content>
   </SkillsContainer>

@@ -13,7 +13,12 @@ import Skills from '../components/Skills/Skills'
 import Education from '../components/Education/Education'
 
 const ResumePage = ({ data: { prismicResume } }) => {
-  const resume = prismicResume.data.body
+  const skills = prismicResume.data.body.filter(
+    item => item.__typename === 'PrismicResumeBodySkills'
+  )
+  const resume = prismicResume.data.body.filter(
+    item => item.__typename === 'PrismicResumeBodyExperience'
+  )
 
   return (
     <Layout>
@@ -42,8 +47,13 @@ const ResumePage = ({ data: { prismicResume } }) => {
         ))}
         <ExperienceSectionHeader>Skills</ExperienceSectionHeader>
         <ExperiencesWrapper>
-          <Skills />
-          <Skills />
+          {skills.map(skill => (
+            <Skills
+              key={skill.primary.section.text}
+              section={skill.primary.section.text}
+              skillItems={skill.items}
+            />
+          ))}
         </ExperiencesWrapper>
         <ExperienceSectionHeader>Education</ExperienceSectionHeader>
         <ExperiencesWrapper>
@@ -60,32 +70,48 @@ export const pageQuery = graphql`
     prismicResume {
       data {
         body {
-          primary {
-            employer {
-              text
+          __typename
+          ... on PrismicResumeBodyExperience {
+            primary {
+              employer {
+                text
+              }
+              location {
+                text
+              }
             }
-            location {
-              text
-            }
-          }
-          items {
-            title {
-              text
-            }
-            dates {
-              text
-            }
-            tasks {
-              document {
-                data {
-                  body {
-                    items {
-                      role {
-                        text
+            items {
+              title {
+                text
+              }
+              dates {
+                text
+              }
+              tasks {
+                document {
+                  data {
+                    body {
+                      items {
+                        role {
+                          text
+                        }
                       }
                     }
                   }
                 }
+              }
+            }
+          }
+          __typename
+          ... on PrismicResumeBodySkills {
+            primary {
+              section {
+                text
+              }
+            }
+            items {
+              skill {
+                text
               }
             }
           }
