@@ -4,6 +4,7 @@ import SkillsContent from './SkillsContent'
 import SkillsHeader from './SkillsHeader'
 import CheckListItem from '../../elements/CheckListItem'
 import CheckList from '../../elements/CheckList'
+import SkillsListItem from './SkillsListItem'
 
 const Skills = ({ section, skillItems }) => (
   <SkillsContainer>
@@ -11,7 +12,7 @@ const Skills = ({ section, skillItems }) => (
       <Skills.Header>{section}</Skills.Header>
       <Skills.List>
         {skillItems.map(skill => (
-          <Skills.ListItem key={skill.skill.text}>
+          <Skills.ListItem key={skill.skill.text} icon={skill.icon.url}>
             {skill.skill.text}
           </Skills.ListItem>
         ))}
@@ -24,6 +25,6 @@ Skills.Container = SkillsContainer
 Skills.Header = SkillsHeader
 Skills.Content = SkillsContent
 Skills.List = CheckList
-Skills.ListItem = CheckListItem
+Skills.ListItem = SkillsListItem
 
 export default Skills

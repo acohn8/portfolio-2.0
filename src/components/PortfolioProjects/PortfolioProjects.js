@@ -8,7 +8,6 @@ const ProtfolioProjects = ({ projects }) => (
   <>
     <FlexGrid>
       <ProtfolioProjects.Header>Projects</ProtfolioProjects.Header>
-      {console.log(projects)}
       {projects.map(project => (
         <Project
           key={project.node.data.name.text}

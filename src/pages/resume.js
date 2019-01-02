@@ -12,17 +12,13 @@ import ExperienceCompanySubheader from '../components/Experience/ExperienceCompa
 import Skills from '../components/Skills/Skills'
 import Education from '../components/Education/Education'
 
-const ResumePage = ({ data: { prismicResume } }) => {
-  const skills = prismicResume.data.body.filter(
-    item => item.__typename === 'PrismicResumeBodySkills'
-  )
+const ResumePage = ({ data: { prismicResume, allPrismicSkills } }) => {
   const resume = prismicResume.data.body.filter(
     item => item.__typename === 'PrismicResumeBodyExperience'
   )
   const education = prismicResume.data.body.filter(
     item => item.__typename === 'PrismicResumeBodyEducation'
   )
-  console.log(education)
 
   return (
     <Layout>
@@ -51,11 +47,10 @@ const ResumePage = ({ data: { prismicResume } }) => {
         ))}
         <ExperienceSectionHeader>Skills</ExperienceSectionHeader>
         <ExperiencesWrapper>
-          {skills.map(skill => (
+          {allPrismicSkills.edges.map(skillArea => (
             <Skills
-              key={skill.primary.section.text}
-              section={skill.primary.section.text}
-              skillItems={skill.items}
+              section={skillArea.node.data.skillCategory.text}
+              skillItems={skillArea.node.data.body[0].skills}
             />
           ))}
         </ExperiencesWrapper>
@@ -113,19 +108,6 @@ export const pageQuery = graphql`
             }
           }
           __typename
-          ... on PrismicResumeBodySkills {
-            primary {
-              section {
-                text
-              }
-            }
-            items {
-              skill {
-                text
-              }
-            }
-          }
-          __typename
           ... on PrismicResumeBodyEducation {
             items {
               school {
@@ -136,6 +118,27 @@ export const pageQuery = graphql`
               }
               description {
                 text
+              }
+            }
+          }
+        }
+      }
+    }
+    allPrismicSkills {
+      edges {
+        node {
+          data {
+            skillCategory: category {
+              text
+            }
+            body {
+              skills: items {
+                skill {
+                  text
+                }
+                icon {
+                  url
+                }
               }
             }
           }
