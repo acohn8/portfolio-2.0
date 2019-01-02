@@ -19,6 +19,10 @@ const ResumePage = ({ data: { prismicResume } }) => {
   const resume = prismicResume.data.body.filter(
     item => item.__typename === 'PrismicResumeBodyExperience'
   )
+  const education = prismicResume.data.body.filter(
+    item => item.__typename === 'PrismicResumeBodyEducation'
+  )
+  console.log(education)
 
   return (
     <Layout>
@@ -57,8 +61,14 @@ const ResumePage = ({ data: { prismicResume } }) => {
         </ExperiencesWrapper>
         <ExperienceSectionHeader>Education</ExperienceSectionHeader>
         <ExperiencesWrapper>
-          <Education />
-          <Education />
+          {education[0].items.map(educationItem => (
+            <Education
+              key={educationItem.degree.text}
+              school={educationItem.school.text}
+              degree={educationItem.degree.text}
+              description={educationItem.description.text}
+            />
+          ))}
         </ExperiencesWrapper>
       </Container>
     </Layout>
@@ -111,6 +121,20 @@ export const pageQuery = graphql`
             }
             items {
               skill {
+                text
+              }
+            }
+          }
+          __typename
+          ... on PrismicResumeBodyEducation {
+            items {
+              school {
+                text
+              }
+              degree {
+                text
+              }
+              description {
                 text
               }
             }

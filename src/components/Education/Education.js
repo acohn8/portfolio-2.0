@@ -6,16 +6,12 @@ import EducationSubHeader from './EducationSubheader'
 import EducationContent from './EducationContent'
 import EducationText from './EducationText'
 
-const Education = () => (
+const Education = ({ school, degree, description }) => (
   <Education.Container>
     <Education.Content>
-      <Education.Header>Georgetown University</Education.Header>
-      <Education.Subheader>
-        BA, Government, History (2006-2010)
-      </Education.Subheader>
-      <Education.Text>
-        Study abroad: Siem Reap and Phnom Penh, Cambodia - 2009
-      </Education.Text>
+      <Education.Header>{school}</Education.Header>
+      <Education.Subheader>{degree}</Education.Subheader>
+      <Education.Text>{description}</Education.Text>
     </Education.Content>
   </Education.Container>
 )
