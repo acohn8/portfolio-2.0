@@ -1,13 +1,21 @@
 import styled from 'styled-components'
 
 const SocialIconWrapper = styled.div`
-  display: flex;
-  flex-flow: column;
-  max-width: 150px;
-  max-height: 150px;
   position: fixed;
   bottom: 20px;
   left: 0;
-  background-color: #0077ba;
+  max-width: 150px;
+  @media only screen and (min-width: 767px) {
+    display: flex;
+    flex-flow: column;
+    max-height: 150px;
+    background-color: #0077ba;
+  }
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    max-height: 150px;
+    align-content: center;
+    justify-content: center;
+  }
 `
 export default SocialIconWrapper

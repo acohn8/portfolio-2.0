@@ -20,10 +20,10 @@ const Layout = ({ home, children }) => (
     `}
     render={data => (
       <PageContainer>
-        <SocialIconContainer />
         <GlobalStyle />
         <Nav home={home} />
         {children}
+        <SocialIconContainer />
       </PageContainer>
     )}
   />
