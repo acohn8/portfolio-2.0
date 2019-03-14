@@ -2,11 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
-// import './layout.css'
 import Nav from './Nav/Nav'
-import Container from '../elements/Container'
-import H1 from '../elements/H1'
 import GlobalStyle from '../theme/globalStyle'
+import PageContainer from '../elements/PageContainer'
+import SocialIconContainer from './SocialIconContainer/SocialIconContainer'
 
 const Layout = ({ home, children }) => (
   <StaticQuery
@@ -20,11 +19,12 @@ const Layout = ({ home, children }) => (
       }
     `}
     render={data => (
-      <>
+      <PageContainer>
+        <SocialIconContainer />
         <GlobalStyle />
         <Nav home={home} />
         {children}
-      </>
+      </PageContainer>
     )}
   />
 )
