@@ -14,8 +14,9 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic`,
       options: {
-        repositoryName: `portfolio-site-ac`,
-        accessToken: `${process.env.API_KEY}`,
+        repositoryName: 'portfolio-site-ac',
+        accessToken:
+          'MC5YQ3BRMHhFQUFDc0FvVXNK.77-977-977-977-9ce-_vTDvv71GSu-_vQ1iXO-_ve-_vUvvv71i77-9fHrvv70C77-977-9fe-_ve-_ve-_vQjvv70',
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },
