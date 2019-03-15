@@ -14,7 +14,18 @@ const IndexPage = ({
   data: { prismicHome, allPrismicProject, allPrismicSkills },
 }) => (
   <Layout home>
-    <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
+    <SEO
+      title="Home"
+      keywords={[
+        'adam',
+        'cohn',
+        'adamcohn',
+        'web developer',
+        'washington',
+        'dc',
+        'javascript',
+      ]}
+    />
     <HomeLanding subhead={prismicHome.data.subhead.text}>
       <About bio={prismicHome.data.bio.text} />
     </HomeLanding>

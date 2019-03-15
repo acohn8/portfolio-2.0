@@ -84,7 +84,7 @@ class ContactPage extends React.Component {
     } = this.state
     return (
       <Layout>
-        <SEO title="Contact" keywords={['gatsby', 'application', 'react']} />
+        <SEO title="Contact" keywords={['adam', 'cohn', 'adamcohn', 'web developer', 'washington', 'dc', 'contact']} />
         <Container>
           <FlexGrid centered>
             <ContactForm

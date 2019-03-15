@@ -4,7 +4,6 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Container from '../elements/Container'
 import Experience from '../components/Experience/Experience'
-import ExperiencesWrapper from '../components/Experience/ExperiencesWrapper'
 import ExperienceSectionHeader from '../components/Experience/ExperienceSectionHeader'
 import ExperienceCompanyHeader from '../components/Experience/ExperienceCompanyHeader'
 import ExperienceCompanySubheader from '../components/Experience/ExperienceCompanySubheader'
@@ -23,7 +22,20 @@ const ResumePage = ({ data: { prismicResume, allPrismicSkills } }) => {
 
   return (
     <Layout>
-      <SEO title="Resume" keywords={['gatsby', 'application', 'react']} />
+      <SEO
+        title="Resume"
+        keywords={[
+          'adam',
+          'cohn',
+          'adamcohn',
+          'web developer',
+          'washington',
+          'dc',
+          'politics',
+          'javascript',
+          'resume',
+        ]}
+      />
       <Container>
         <ExperienceSectionHeader>Experience</ExperienceSectionHeader>
         {resume.map((job, index) => (
