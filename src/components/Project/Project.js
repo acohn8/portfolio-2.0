@@ -11,7 +11,6 @@ import CheckList from '../../elements/CheckList'
 
 const Project = ({ name, description, image, features, link }) => (
   <Project.Container>
-    {console.log(link)}
     <ProjectImage src={image} alt="Election Archive" />
     <Project.Content>
       <Project.Header>

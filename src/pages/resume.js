@@ -51,6 +51,7 @@ const ResumePage = ({ data: { prismicResume, allPrismicSkills } }) => {
         <FlexGrid>
           {allPrismicSkills.edges.map(skillArea => (
             <Skills
+              key={skillArea.node.data.skillCategory.text}
               section={skillArea.node.data.skillCategory.text}
               skillItems={skillArea.node.data.body[0].skills}
             />
