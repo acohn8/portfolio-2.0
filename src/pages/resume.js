@@ -4,13 +4,14 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Container from '../elements/Container'
 import Experience from '../components/Experience/Experience'
-import H2 from '../elements/H2'
 import ExperiencesWrapper from '../components/Experience/ExperiencesWrapper'
 import ExperienceSectionHeader from '../components/Experience/ExperienceSectionHeader'
 import ExperienceCompanyHeader from '../components/Experience/ExperienceCompanyHeader'
 import ExperienceCompanySubheader from '../components/Experience/ExperienceCompanySubheader'
 import Skills from '../components/Skills/Skills'
 import Education from '../components/Education/Education'
+import GhostCard from '../elements/GhostCard'
+import FlexGrid from '../elements/FlexGrid'
 
 const ResumePage = ({ data: { prismicResume, allPrismicSkills } }) => {
   const resume = prismicResume.data.body.filter(
@@ -33,7 +34,7 @@ const ResumePage = ({ data: { prismicResume, allPrismicSkills } }) => {
             <ExperienceCompanySubheader>
               {job.primary.location.text}
             </ExperienceCompanySubheader>
-            <ExperiencesWrapper>
+            <FlexGrid>
               {job.items.map((role, index) => (
                 <Experience
                   key={`${role}${index}`}
@@ -42,20 +43,21 @@ const ResumePage = ({ data: { prismicResume, allPrismicSkills } }) => {
                   tasks={role.tasks.document[0].data.body[0].items}
                 />
               ))}
-            </ExperiencesWrapper>
+              {job.items.length % 2 !== 0 && <GhostCard />}
+            </FlexGrid>
           </div>
         ))}
         <ExperienceSectionHeader>Skills</ExperienceSectionHeader>
-        <ExperiencesWrapper>
+        <FlexGrid>
           {allPrismicSkills.edges.map(skillArea => (
             <Skills
               section={skillArea.node.data.skillCategory.text}
               skillItems={skillArea.node.data.body[0].skills}
             />
           ))}
-        </ExperiencesWrapper>
+        </FlexGrid>
         <ExperienceSectionHeader>Education</ExperienceSectionHeader>
-        <ExperiencesWrapper>
+        <FlexGrid>
           {education[0].items.map(educationItem => (
             <Education
               key={educationItem.degree.text}
@@ -64,7 +66,7 @@ const ResumePage = ({ data: { prismicResume, allPrismicSkills } }) => {
               description={educationItem.description.text}
             />
           ))}
-        </ExperiencesWrapper>
+        </FlexGrid>
       </Container>
     </Layout>
   )

@@ -86,7 +86,7 @@ class ContactPage extends React.Component {
       <Layout>
         <SEO title="Contact" keywords={['gatsby', 'application', 'react']} />
         <Container>
-          <FlexGrid>
+          <FlexGrid centered>
             <ContactForm
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}

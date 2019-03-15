@@ -55,6 +55,7 @@ export const pageQuery = graphql`
             link {
               url
             }
+            order
             image {
               url
             }

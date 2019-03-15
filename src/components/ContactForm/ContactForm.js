@@ -84,7 +84,7 @@ const ContactForm = ({
         <ContactForm.Textarea
           type="textarea"
           name="message"
-          rows="20"
+          rows="12"
           value={message}
           onChange={handleChange}
           error={error && !message.length}
